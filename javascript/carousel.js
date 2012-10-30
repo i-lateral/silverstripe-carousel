@@ -46,5 +46,14 @@
 			})
 			.tabs('rotate', 8000, true);
 			
-	});	
+	});
+			
+	// Add hover effect to stop tab animation
+	$('.carousel-slides').hover(
+		function() {
+			$(this).tabs('rotate', 0, false);
+		}, function() {
+			$(this).tabs('rotate', 8000, true);
+		}
+	);
 })(jQuery)
