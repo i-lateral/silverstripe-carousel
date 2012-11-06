@@ -10,7 +10,10 @@
 					
 					if(lastOpenedPanel) {
 						new_index = ui.index;
-						old_index = parseInt(lastOpenedPanel.attr('id').replace('tabs-', ''));
+						old_index = parseInt(lastOpenedPanel.attr('id').replace('carousel-slide-', ''));
+						
+						console.log(new_index);
+						console.log(old_index);
 						
 						if(new_index < old_index) {
 							new_left = '-765px';
