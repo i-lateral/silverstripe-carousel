@@ -1,22 +1,26 @@
 <?php
 
-class CarouselPage extends DataObjectDecorator {
-    public static $extra_statics = array(
-        'db' => array(
-            'Slides' => 'CarouselSlide'
-        )
+class CarouselPage extends DataExtension {
+    public static $has_many = array(
+        'Slides' => 'CarouselSlide'
     );
     
-    public function updateCMSFields(FieldSet $fields) {
+    public function updateCMSFields(FieldList $fields) {
 		
-		$GalleryTable = new ComplexTableField(
-			$this->owner,
-			'Slides',
-			'CarouselSlide',
-			null
-		);
+		// Add calc options
+        $grid_config = GridFieldConfig::create();
+        $grid_config->addComponents(
+            new GridFieldAddnewButton(),
+            new GridFieldDeleteAction(),
+            new GridFieldDataColumns(),
+            new GridFieldDetailForm(),
+            new GridFieldEditButton(),
+            new GridFieldSortableHeader()
+        );
+        
+        $carousel_table = GridField::create('Slides', null, $this->owner->Slides()->sort('Sort DESC'), $grid_config);
 		
-		$fields->addFieldToTab('Root.Content.Carousel', $GalleryTable);
+		$fields->addFieldToTab('Root.Carousel', $carousel_table);
         
         parent::updateCMSFields($fields);
     }
@@ -25,7 +29,7 @@ class CarouselPage extends DataObjectDecorator {
         $filter = "ParentID = {$this->owner->ID}";
         $sort = 'Sort ASC';
         
-        $slides = DataObject::get('CarouselSlide', $filter, $sort);
+        $slides = CarouselSlide::get($filter, $sort);
         
         return $this->owner->renderWith('CarouselSlides', array('Slides' => $slides));
     }
