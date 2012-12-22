@@ -1,3 +1,9 @@
+<% require css(carousel/css/carousel.css) %>
+
+<% require javascript(framework/thirdparty/jquery/jquery.js) %>
+<% require javascript(framework/thirdparty/jquery-ui/jquery-ui.js) %>
+<% require javascript(carousel/javascript/carousel.js) %>
+
 <% if Slides %><div class="carousel-container">
     <div class="carousel-slides">
         <% control Slides %>
