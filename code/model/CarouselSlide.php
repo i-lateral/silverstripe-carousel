@@ -3,8 +3,7 @@
 class CarouselSlide extends DataObject {
     
     public static $db = array(
-        'Title'     => 'Varchar',
-        'Content'   => 'Text',
+        'Title'     => 'Varchar(99)',
         'Sort'      => 'Int'
     );
     
@@ -13,4 +12,27 @@ class CarouselSlide extends DataObject {
         'Image'     => 'Image'
     );
     
+    public static $casting = array(
+	    'Thumbnail'	=> 'Varchar'
+    );
+    
+    public static $summary_fields = array(
+		'Thumbnail'	=> 'Image',
+		'Title'		=> 'Title'
+    );
+    
+    public function getCMSFields() {
+		$fields = parent::getCMSFields();
+		
+		$fields->removeByName('ParentID');
+		
+		return $fields;
+	}
+    
+    public function getThumbnail() {
+        if($this->Image())
+            return $this->Image()->CMSThumbnail();
+        else
+            return '(No Image)';
+    }
 }

@@ -8,9 +8,8 @@
     <div class="carousel-slides">
         <% control Slides %>
             <div id="carousel-slide-$Pos" class="carousel-slide $FirstLast">
-                $Image.CroppedImage(650,450)
-                <% if Title %><h3 class="carousel-slide-header">$Title</h3><% end_if %>
-                <% if Content %><p class="carousel-slide-content">$Content.RAW</p><% end_if %>
+                $Image.CroppedImage(750,350)
+                <% if Title %><h2 class="carousel-slide-header">$Title.RAW</h2><% end_if %>
             </div>
         <% end_control %>
         

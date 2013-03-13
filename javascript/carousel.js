@@ -49,14 +49,17 @@
 			})
 			.tabs('rotate', 8000, true);
 			
-	});
 			
-	// Add hover effect to stop tab animation
-	$('.carousel-slides').hover(
-		function() {
-			$(this).tabs('rotate', 0, false);
-		}, function() {
-			$(this).tabs('rotate', 8000, true);
-		}
-	);
+		// Add hover effect to stop tab animation
+		$('.carousel-slides').hover(
+			function() {
+				$(this).tabs('rotate', 0, false);
+			}, function() {
+				$(this).tabs('rotate', 8000, true);
+			}
+		);
+		
+		// Set transparency on h2's
+		$('.carousel-slides .carousel-slide .carousel-slide-header').css({ opacity: 0.75 });
+	});
 })(jQuery)
