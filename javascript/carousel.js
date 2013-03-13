@@ -5,8 +5,8 @@
 				show: function(event, ui) {					
 					var lastOpenedPanel = $(this).data("lastOpenedPanel");
 					
-					new_left = '765px';
-					old_left = '-765px';
+					new_left = $(this).width() + 'px';
+					old_left = '-' + $(this).width() + 'px';
 					
 					if(lastOpenedPanel) {
 						new_index = ui.index;
@@ -16,8 +16,8 @@
 						console.log(old_index);
 						
 						if(new_index < old_index) {
-							new_left = '-765px';
-							old_left = '765px';
+							new_left = '-' + $(this).width() + 'px';
+							old_left = $(this).width() + 'px';
 						}
 					}
 					    
