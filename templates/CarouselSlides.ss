@@ -4,7 +4,7 @@
 <% require javascript(framework/thirdparty/jquery-ui/jquery-ui.js) %>
 <% require javascript(carousel/javascript/carousel.js) %>
 
-<% if Slides %><div class="carousel-container">
+<% if Slides.Exists %><div class="carousel-container">
     <div class="carousel-slides">
         <% control Slides %>
             <div id="carousel-slide-$Pos" class="carousel-slide $FirstLast">
