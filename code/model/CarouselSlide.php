@@ -20,6 +20,8 @@ class CarouselSlide extends DataObject {
 		'Thumbnail'	=> 'Image',
 		'Title'		=> 'Title'
     );
+
+	public static $default_sort = "Sort DESC";
     
     public function getCMSFields() {
 		$fields = parent::getCMSFields();
