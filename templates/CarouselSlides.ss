@@ -2,6 +2,7 @@
 
 <% require javascript(framework/thirdparty/jquery/jquery.js) %>
 <% require javascript(framework/thirdparty/jquery-ui/jquery-ui.js) %>
+<% require javascript(carousel/javascript/jquery-ui-tabs-rotate.js) %>
 <% require javascript(carousel/javascript/carousel.js) %>
 
 <% if Slides.Exists %><div class="carousel-container">
@@ -9,7 +10,7 @@
         <% control Slides %>
             <div id="carousel-slide-$Pos" class="carousel-slide $FirstLast">
                 $Image.CroppedImage(750,350)
-                <% if Title %><h2 class="carousel-slide-header">$Title.RAW</h2><% end_if %>
+                <% if Title %><div class="carousel-slide-content"><h2>$Title.RAW</h2></div><% end_if %>
             </div>
         <% end_control %>
         

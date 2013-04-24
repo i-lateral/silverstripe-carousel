@@ -25,17 +25,20 @@
 	        left: 0;
 	        overflow: hidden;
         }
-			.carousel-container .ui-tabs-panel .carousel-slide-header {
+			.carousel-container .ui-tabs-panel .carousel-slide-content {
 				position: absolute;
 				top: 0;
 				left: 0;
 				background: #000;
-				color: #fff;
 				padding: 2.5%;
 				width: 95%;
 				margin: 0;
 			}
-        
+                .carousel-container .ui-tabs-panel .carousel-slide-content h2,
+                .carousel-container .ui-tabs-panel .carousel-slide-content p {
+                    color: #fff;
+                    margin: 0;
+                }
 
         .carousel-container .ui-tabs .ui-tabs-nav {
             list-style: none;
@@ -57,12 +60,14 @@
                 background: #fff;
                 border: 2px solid #fff;
                 padding: 7px;
+                -webkit-border-radius: 10px;
+                -moz-border-radius: 10px;
+                border-radius: 10px;
             }
             .carousel-container .ui-tabs .ui-tabs-nav .ui-state-hover a,
             .carousel-container .ui-tabs .ui-tabs-nav .ui-state-active a {
                 background: #000;
             }
-
 
 .ui-tabs .ui-tabs-hide {
 	display: none !important;
