@@ -9,11 +9,11 @@
     <div class="carousel-slides">
         <% control Slides %>
             <div id="carousel-slide-$Pos" class="carousel-slide $FirstLast">
-                $Image.CroppedImage(750,350)
+                $SizedImage
                 <% if Title %><div class="carousel-slide-content"><h2>$Title.RAW</h2></div><% end_if %>
             </div>
         <% end_control %>
-        
+
         <div class="carousel-controls">
             <ul class="carousel-controls-list">
                 <% control Slides %>

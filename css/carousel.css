@@ -1,39 +1,35 @@
 /* Tabs
 ---------------------------------------------------------*/
-.carousel-container {
-    width: 750px;
-    height: 350px;
-}
     .carousel-container .ui-tabs {
-	    width: 100%;
-	    height: 100%;
-	    margin: auto;
-	    padding: 0;
-	    position: relative;
-	    overflow: hidden;
+        width: 100%;
+        height: 100%;
+        margin: auto;
+        padding: 0;
+        position: relative;
+        overflow: hidden;
     }
         .carousel-container .ui-tabs-panel {
-	        display: block;
-	        border-width: 0;
-	        background: none;
-	        width: 100%;
-	        height: 100%;
-	        margin: auto;
-	        padding: 0;
-	        position: absolute;
-	        top: 0;
-	        left: 0;
-	        overflow: hidden;
+            display: block;
+            border-width: 0;
+            background: none;
+            width: 100%;
+            height: 100%;
+            margin: auto;
+            padding: 0;
+            position: absolute;
+            top: 0;
+            left: 0;
+            overflow: hidden;
         }
-			.carousel-container .ui-tabs-panel .carousel-slide-content {
-				position: absolute;
-				top: 0;
-				left: 0;
-				background: #000;
-				padding: 2.5%;
-				width: 95%;
-				margin: 0;
-			}
+            .carousel-container .ui-tabs-panel .carousel-slide-content {
+                position: absolute;
+                top: 0;
+                left: 0;
+                background: #000;
+                padding: 2.5%;
+                width: 95%;
+                margin: 0;
+            }
                 .carousel-container .ui-tabs-panel .carousel-slide-content h2,
                 .carousel-container .ui-tabs-panel .carousel-slide-content p {
                     color: #fff;
@@ -70,5 +66,5 @@
             }
 
 .ui-tabs .ui-tabs-hide {
-	display: none !important;
+    display: none !important;
 }
