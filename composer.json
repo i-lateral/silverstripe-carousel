@@ -1,0 +1,23 @@
+{
+  "name": "i-lateral/silverstripe-carousel",
+	"description": "A jQuery UI based carousel for Silverstripe",
+	"type": "silverstripe-module",
+	"homepage": "http://github.com/i-lateral/silverstripe-carousel",
+	"keywords": ["silverstripe", "carousel"],
+	"license": "BSD-3-Clause",
+	"authors": [
+		{
+			"name": "Morven Lewis-Everley",
+			"email": "morven@i-lateral.com"
+		}
+	],
+	"support": {
+		"issues": "http://github.com/i-lateral/silverstripe-carousel/issues"
+	},
+	"require": {
+		"silverstripe/framework": ">=3.0"
+	},
+	"extra": {
+		"installer-name": "carousel"
+	}
+}
