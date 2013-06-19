@@ -1,17 +1,17 @@
 <?php
 
 class CarouselPage extends DataExtension {
-    public static $db = array(
+    private static $db = array(
         'ShowCarousel'  => 'Boolean',
         'CarouselWidth' => 'Int',
         'CarouselHeight'=> 'Int'
     );
 
-    public static $has_many = array(
+    private static $has_many = array(
         'Slides' => 'CarouselSlide'
     );
 
-    public static $defaults = array(
+    private static $defaults = array(
         'CarouselWidth' => 750,
         'CarouselHeight' => 350
     );

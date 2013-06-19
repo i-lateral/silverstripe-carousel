@@ -2,26 +2,26 @@
 
 class CarouselSlide extends DataObject {
 
-    public static $db = array(
+    private static $db = array(
         'Title'     => 'Varchar(99)',
         'Sort'      => 'Int'
     );
 
-    public static $has_one = array(
+    private static $has_one = array(
         'Parent'    => 'Page',
         'Image'     => 'Image'
     );
 
-    public static $casting = array(
+    private static $casting = array(
         'Thumbnail' => 'Varchar'
     );
 
-    public static $summary_fields = array(
+    private static $summary_fields = array(
         'Thumbnail' => 'Image',
         'Title'     => 'Title'
     );
 
-    public static $default_sort = "Sort DESC";
+    private static $default_sort = "Sort DESC";
 
     public function getSizedImage() {
         $width = $this->Parent()->CarouselWidth;
