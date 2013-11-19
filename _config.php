@@ -1,5 +1,5 @@
 <?php
-Object::add_extension('SiteTree', 'CarouselPage');
+SiteTree::add_extension('CarouselPage');
 
 // Disable hash re-writing
 SSViewer::setOption('rewriteHashlinks', false);
