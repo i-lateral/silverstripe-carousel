@@ -27,9 +27,15 @@ class CarouselPage extends DataExtension {
             $grid_config = GridFieldConfig_RecordEditor::create()
                 ->removeComponentsByType('GridFieldAddNewButton')
                 ->removeComponentsByType('GridFieldFilterHeader')
+                ->addComponent(new GridFieldOrderableRows('Sort'))
                 ->addComponent($add_button);
 
-            $carousel_table = GridField::create('Slides', false, $this->owner->Slides()->sort('Sort DESC'), $grid_config);
+            $carousel_table = GridField::create(
+                'Slides',
+                false,
+                $this->owner->Slides(),
+                $grid_config
+            );
 
             $fields->addFieldToTab('Root.Carousel', $carousel_table);
         } else {

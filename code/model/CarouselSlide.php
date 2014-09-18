@@ -21,7 +21,7 @@ class CarouselSlide extends DataObject {
         'Title'     => 'Title'
     );
 
-    private static $default_sort = "Sort DESC";
+    private static $default_sort = "Sort ASC";
 
     public function getSizedImage() {
         $width = $this->Parent()->CarouselWidth;
@@ -37,6 +37,7 @@ class CarouselSlide extends DataObject {
         $fields = parent::getCMSFields();
 
         $fields->removeByName('ParentID');
+        $fields->removeByName('Sort');
 
         return $fields;
     }
