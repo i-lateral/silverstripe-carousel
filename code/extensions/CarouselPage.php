@@ -1,17 +1,42 @@
 <?php
 
+/**
+ * Extension to all page objects that add carousel slide relationships
+ * 
+ * @author i-lateral (http://www.i-lateral.com)
+ * @package carousel
+ */
 class CarouselPage extends DataExtension {
-    private static $db = array(
+    
+    /**
+     * DB Columns
+     * 
+     * @var array
+     * @config
+     */
+    static $db = array(
         'ShowCarousel'  => 'Boolean',
         'CarouselWidth' => 'Int',
         'CarouselHeight'=> 'Int'
     );
 
-    private static $has_many = array(
+    /**
+     * Has Many relations
+     * 
+     * @var array
+     * @config
+     */
+    static $has_many = array(
         'Slides' => 'CarouselSlide'
     );
 
-    private static $defaults = array(
+    /**
+     * Default variables
+     * 
+     * @var array
+     * @config
+     */
+    static $defaults = array(
         'CarouselWidth' => 750,
         'CarouselHeight' => 350
     );
@@ -76,6 +101,13 @@ class CarouselPage extends DataExtension {
 CSS
         );
 
-        return $this->owner->renderWith('CarouselSlides', array('Slides' => $this->owner->Slides()));
+        return $this
+            ->owner
+            ->renderWith(
+                'CarouselSlides',
+                array(
+                    'Slides' => $this->owner->Slides()
+                )
+            );
     }
 }

@@ -1,27 +1,65 @@
 <?php
 
+/**
+ * Representation of a slide object that can be extended to add extra
+ * data (such as links, additional content, etc)
+ * 
+ * @author i-lateral (http://www.i-lateral.com)
+ * @package carousel
+ */
 class CarouselSlide extends DataObject {
 
-    private static $db = array(
+    /**
+     * DB Columns
+     * 
+     * @var array
+     * @config
+     */
+    static $db = array(
         'Title'     => 'Varchar(99)',
         'Sort'      => 'Int'
     );
 
-    private static $has_one = array(
+    /**
+     * Has One relations
+     * 
+     * @var array
+     * @config
+     */
+    static $has_one = array(
         'Parent'    => 'Page',
         'Image'     => 'Image'
     );
 
-    private static $casting = array(
+    /**
+     * Default casting for functions to templates
+     * 
+     * @var array
+     * @config
+     */
+    static $casting = array(
         'Thumbnail' => 'Varchar'
     );
 
-    private static $summary_fields = array(
+    /**
+     * Summary columns/fields for this object
+     * 
+     * @var array
+     * @config
+     */
+    static $summary_fields = array(
         'Thumbnail' => 'Image',
         'Title'     => 'Title'
     );
 
-    private static $default_sort = "Sort ASC";
+    /**
+     * Default sorting of this object
+     * 
+     * @var string
+     * @config
+     */
+    static $default_sort = "Sort ASC";
+    
 
     public function getSizedImage() {
         $width = $this->Parent()->CarouselWidth;
