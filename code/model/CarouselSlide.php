@@ -86,4 +86,52 @@ class CarouselSlide extends DataObject {
         else
             return '(No Image)';
     }
+    
+    /**
+     * Check parent permissions
+     *
+     * @return Boolean
+     */
+    public function canView($member = null) {
+        $extended = $this->extend('canView', $member);
+        if($extended && $extended !== null) return $extended;
+
+        return $this->Parent()->canView($member);
+    }
+
+    /**
+     * Anyone can create a carousel slide
+     *
+     * @return Boolean
+     */
+    public function canCreate($member = null) {
+        $extended = $this->extend('canCreate', $member);
+        if($extended && $extended !== null) return $extended;
+
+        return true;
+    }
+
+    /**
+     * Check parent permissions
+     *
+     * @return Boolean
+     */
+    public function canEdit($member = null) {
+        $extended = $this->extend('canEdit', $member);
+        if($extended && $extended !== null) return $extended;
+
+        return $this->Parent()->canEdit($member);
+    }
+
+    /**
+     * Check parent permissions
+     *
+     * @return Boolean
+     */
+    public function canDelete($member = null) {
+        $extended = $this->extend('canDelete', $member);
+        if($extended && $extended !== null) return $extended;
+
+        return $this->Parent()->canEdit($member);
+    }
 }
