@@ -10,8 +10,14 @@
         <div class="slides">
             <% loop $Slides %>
                 <div id="carousel-slide-$Pos" class="slide $FirstLast">
-
-                    $SizedImage
+					<% if $YoutubeVideoID %>
+						$YoutubeScript
+						<div class="youtube-video">
+							<div id="player"></div>
+						</div>
+					<% else %>
+						$SizedImage
+					<% end_if %>
 
                     <% if Title %>
                         <div class="slide-content">

@@ -17,7 +17,8 @@ class CarouselSlide extends DataObject {
      */
     static $db = array(
         'Title'     => 'Varchar(99)',
-        'Sort'      => 'Int'
+        'Sort'      => 'Int',
+        'YoutubeVideoID' => 'Varchar'
     );
 
     /**
@@ -86,6 +87,17 @@ class CarouselSlide extends DataObject {
         else
             return '(No Image)';
     }
+	
+	public function getYoutubeScript() {
+		$vars = array (
+			"video" => $this->YoutubeVideoID,
+			"width" => $this->Parent()->CarouselWidth,
+			"height" => $this->Parent()->CarouselHeight
+		);
+		
+		$script = Requirements::javascriptTemplate("carousel/javascript/youtube-api.js", $vars);
+		return $script;
+	}
     
     /**
      * Check parent permissions

@@ -106,6 +106,7 @@ CSS
             ->renderWith(
                 'CarouselSlides',
                 array(
+					'Parent' => $this->owner->Parent(),
                     'Slides' => $this->owner->Slides()
                 )
             );
