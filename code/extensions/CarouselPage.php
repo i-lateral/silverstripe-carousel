@@ -111,4 +111,22 @@ CSS
                 )
             );
     }
+    
+    public function getYoutubeApi() {		
+		$embed = '';
+		
+		foreach($this->owner->Slides() as $slide) {
+			if ($slide->YoutubeVideoID) {
+				$embed .= "new YT.Player('{$slide->YoutubeVideoID}',{videoId:'{$slide->YoutubeVideoID}',events:{height: height,width: width}}); ";
+			}
+		}
+		if ($embed) {
+			$vars = array (
+				"width" => $this->owner->CarouselWidth,
+				"height" => $this->owner->CarouselHeight,
+				"embed" => $embed
+			);
+			Requirements::javascriptTemplate("carousel/javascript/youtube-api.js",$vars);
+		}
+	}
 }

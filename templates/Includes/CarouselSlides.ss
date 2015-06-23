@@ -4,6 +4,7 @@
 <% require javascript(framework/thirdparty/jquery/jquery.js) %>
 <% require javascript(carousel/javascript/jquery.flexslider-min.js) %>
 <% require javascript(carousel/javascript/carousel.js) %>
+$YoutubeApi
 
 <% if Slides.Exists %>
     <div class="flexslider">
@@ -11,9 +12,8 @@
             <% loop $Slides %>
                 <div id="carousel-slide-$Pos" class="slide $FirstLast">
 					<% if $YoutubeVideoID %>
-						$YoutubeScript
 						<div class="youtube-video">
-							<div id="player"></div>
+							<div id="$YoutubeVideoID"></div>
 						</div>
 					<% else %>
 						$SizedImage
