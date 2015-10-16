@@ -3,6 +3,9 @@
 .flexslider .slide {
     position: relative;
 }
+	.flexslider .slide iframe {
+		width: 100%;
+	}
     .flexslider .slide .slide-content {
         position: absolute;
         bottom: 0;
