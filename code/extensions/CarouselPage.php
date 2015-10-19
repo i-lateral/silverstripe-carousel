@@ -121,7 +121,7 @@ CSS
 			}
 		}
 				
-		if ($videos) {
+		if (count($videos) > 0) {
 			$vars = array (
 				"width" => $this->owner->CarouselWidth,
 				"height" => $this->owner->CarouselHeight,

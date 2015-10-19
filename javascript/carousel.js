@@ -1,4 +1,5 @@
-	var carousel_players = [];
+var carousel_players = [];
+var carousel_yt_api = false;
 (function($) {
 
     $(document).ready(function() {
@@ -8,10 +9,13 @@
         $('.flexslider').flexslider({
             animation: "slide",
             selector: ".slides > .slide",
+            video: true,
 			before: function() {
-				var i;
-				for (i = 0; i < carousel_players.length; i++) {
-					carousel_players[i].pauseVideo()
+				if (carousel_yt_api == true) {
+					var i;
+					for (i = 0; i < carousel_players.length; i++) {
+						carousel_players[i].pauseVideo()
+					}
 				}
 			}
         });
