@@ -40,4 +40,19 @@
     .flexslider .flex-control-nav a {
         padding: 2px;
     }
+    
+    /* Responsive embedded objects */
+	.flexslider .youtube-video {
+		height: 0;
+		position: relative;
+	}
+		.flexslider .youtube-video iframe,
+		.flexslider .youtube-video object,
+		.flexslider .youtube-video embed {
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 100%;
+		}
 

@@ -87,12 +87,6 @@ class CarouselSlide extends DataObject {
         else
             return '(No Image)';
     }
-	
-	public function getYoutubeApi() {
-		$script = Requirements::javascriptTemplate("carousel/javascript/youtube-api.js");
-		
-		return $script;
-	}
     
     /**
      * Check parent permissions

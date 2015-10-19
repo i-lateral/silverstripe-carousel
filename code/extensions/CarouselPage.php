@@ -113,20 +113,27 @@ CSS
     }
     
     public function getYoutubeApi() {		
-		$embed = '';
+		$videos = array();
 		
 		foreach($this->owner->Slides() as $slide) {
 			if ($slide->YoutubeVideoID) {
-				$embed .= "new YT.Player('{$slide->YoutubeVideoID}',{videoId:'{$slide->YoutubeVideoID}',events:{height: height,width: width}}); ";
+				$videos[] = $slide->YoutubeVideoID;
 			}
 		}
-		if ($embed) {
+				
+		if ($videos) {
 			$vars = array (
 				"width" => $this->owner->CarouselWidth,
 				"height" => $this->owner->CarouselHeight,
-				"embed" => $embed
+				"videos" => "'".implode("','",$videos)."'"
 			);
 			Requirements::javascriptTemplate("carousel/javascript/youtube-api.js",$vars);
 		}
 	}
+	
+	// gets and returns the video ratio as a percentage
+	public function getVidRatio() {
+		return ($this->owner->CarouselHeight / $this->owner->CarouselWidth) * 100;
+	}		
+		
 }

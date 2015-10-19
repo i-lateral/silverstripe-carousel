@@ -1,10 +1,9 @@
 <% require css(carousel/css/flexslider.css) %>
 <% require css(carousel/css/carousel.css) %>
-
+$YoutubeApi
 <% require javascript(framework/thirdparty/jquery/jquery.js) %>
 <% require javascript(carousel/javascript/jquery.flexslider-min.js) %>
 <% require javascript(carousel/javascript/carousel.js) %>
-$YoutubeApi
 
 <% if Slides.Exists %>
     <div class="flexslider">
@@ -12,14 +11,14 @@ $YoutubeApi
             <% loop $Slides %>
                 <div id="carousel-slide-$Pos" class="slide $FirstLast">
 					<% if $YoutubeVideoID %>
-						<div class="youtube-video">
+						<div class="youtube-video" style="padding-bottom: {$Up.VidRatio}%">
 							<div id="$YoutubeVideoID"></div>
 						</div>
 					<% else %>
 						$SizedImage
 					<% end_if %>
 
-                    <% if Title %>
+                    <% if Title && not $YoutubeVideoID %>
                         <div class="slide-content">
                             <h2>$Title.RAW</h2>
                         </div>
