@@ -66,7 +66,7 @@ class CarouselSlide extends DataObject {
         $height = $this->Parent()->CarouselHeight;
 
         if($width && $height)
-            return $this->Image()->croppedImage($width, $height);
+            return $this->Image()->croppedFocusedImage($width, $height);
         else
             return false;
     }
