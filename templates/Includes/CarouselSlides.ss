@@ -11,11 +11,20 @@
             <% loop $Slides %>
                 <div id="carousel-slide-$Pos" class="slide $FirstLast">
 
-                    $SizedImage
+				<% if $Link.LinkURL %>
+					<a href="$Link.LinkURL" $Link.TargetAttr>$SizedImage</a>
+				<% else %>
+					$SizedImage
+				<% end_if %>
+
 
                     <% if Title %>
                         <div class="slide-content">
-                            <h2>$Title.RAW</h2>
+							<% if $Link.LinkURL %>
+								<h2><a href="$Link.LinkURL" $Link.TargetAttr>$Title.RAW</a></h2>
+							<% else %>
+								<h2>$Title.RAW</h2>
+							<% end_if %>
                         </div>
                     <% end_if %>
                 </div>
