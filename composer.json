@@ -18,7 +18,7 @@
 		"silverstripe/framework": ">=3.1",
 		"silverstripe/cms": ">=3.1",
         "silverstripe-australia/gridfieldextensions": "1.1.*",
-        "sheadawson/silverstripe-linkable": "1.1.*",
+        "sheadawson/silverstripe-linkable": "1.*",
         "jonom/focuspoint": "*"
 	},
 	"extra": {
