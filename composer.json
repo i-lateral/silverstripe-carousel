@@ -1,27 +1,41 @@
 {
   "name": "i-lateral/silverstripe-carousel",
-	"description": "A jQuery UI based carousel for Silverstripe",
-	"type": "silverstripe-module",
+	"description": "A base framework for creating sliders/carousels on your SilverStripe site",
+	"type": "silverstripe-vendormodule",
 	"homepage": "http://github.com/i-lateral/silverstripe-carousel",
-	"keywords": ["silverstripe", "carousel"],
+	"keywords": [
+		"silverstripe",
+		"carousel",
+		"slider"
+	],
 	"license": "BSD-3-Clause",
 	"authors": [
 		{
 			"name": "Morven Lewis-Everley",
-			"email": "morven@i-lateral.com"
+			"email": "morven@ilateral.co.uk"
+		},
+		{
+			"name": "Mark Anderson",
+			"email": "mark@ilateral.co.uk"
 		}
 	],
 	"support": {
 		"issues": "http://github.com/i-lateral/silverstripe-carousel/issues"
 	},
 	"require": {
-		"silverstripe/framework": ">=3.1",
-		"silverstripe/cms": ">=3.1",
-        "symbiote/silverstripe-gridfieldextensions": "~2.0",
-        "sheadawson/silverstripe-linkable": "1.*",
-        "jonom/focuspoint": "*"
+		"silverstripe/cms": "~4.0",
+        "symbiote/silverstripe-gridfieldextensions": "~3.0",
+        "sheadawson/silverstripe-linkable": "dev-master",
+        "jonom/focuspoint": "ss4-upgrade-dev"
 	},
 	"extra": {
-		"installer-name": "carousel"
-	}
+        "expose": [
+            "client/dist"
+        ]
+    },
+    "autoload": {
+        "psr-4": {
+            "ilateral\\SilverStripe\\Carousel\\": "src/"
+        }
+    }
 }
