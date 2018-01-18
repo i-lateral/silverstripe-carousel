@@ -6,4 +6,4 @@ SilverStripe\CMS\Model\SiteTree:
     - ilateral\SilverStripe\Carousel\Extensions\CarouselPage
 SilverStripe\Admin\LeftAndMain:
   extra_requirements_javascript:
-    - 'ilateral/silverstripe-carousel: client/dist/scripts/carouseladmin.js'
+    - 'i-lateral/silverstripe-carousel: client/dist/scripts/carouseladmin.js'
