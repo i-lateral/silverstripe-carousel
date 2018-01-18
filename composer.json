@@ -28,11 +28,6 @@
         "sheadawson/silverstripe-linkable": "dev-master",
         "jonom/focuspoint": "ss4-upgrade-dev"
 	},
-	"extra": {
-        "expose": [
-            "client/dist"
-        ]
-    },
     "autoload": {
         "psr-4": {
             "ilateral\\SilverStripe\\Carousel\\": "src/"
