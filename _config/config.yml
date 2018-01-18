@@ -4,3 +4,6 @@ Name: carouselconfig
 SilverStripe\CMS\Model\SiteTree:
   extensions:
     - ilateral\SilverStripe\Carousel\Extensions\CarouselPage
+SilverStripe\Admin\LeftAndMain:
+  extra_requirements_javascript:
+    - 'ilateral/silverstripe-carousel: client/dist/scripts/carouseladmin.js'

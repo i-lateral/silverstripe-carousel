@@ -22,6 +22,11 @@
 	"support": {
 		"issues": "http://github.com/i-lateral/silverstripe-carousel/issues"
 	},
+    "extra": {
+        "expose": [
+            "client/dist"
+        ]
+    },
 	"require": {
 		"silverstripe/cms": "~4.0",
         "symbiote/silverstripe-gridfieldextensions": "~3.1",
