@@ -1,6 +1,6 @@
 <?php
 
-namespace ilateral\SilverStripe\Carousel\Extensions;
+namespace ilateral\SilverStripe\Carousel\Model;
 
 use SilverStripe\ORM\DataObject;
 use SilverStripe\Forms\LiteralField;

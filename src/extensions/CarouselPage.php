@@ -12,6 +12,7 @@ use SilverStripe\Forms\GridField\GridField;
 use SilverStripe\Forms\GridField\GridFieldAddNewButton;
 use Symbiote\GridFieldExtensions\GridFieldOrderableRows;
 use SilverStripe\Forms\GridField\GridFieldConfig_RecordEditor;
+use ilateral\SilverStripe\Carousel\Model\CarouselSlide;
 
 /**
  * Extension to all page objects that add carousel slide relationships
@@ -41,7 +42,7 @@ class CarouselPage extends DataExtension
      * @config
      */
     private static $has_many = [
-        'Slides' => 'CarouselSlide'
+        'Slides' => CarouselSlide::class
     ];
 
     /**
@@ -58,22 +59,12 @@ class CarouselPage extends DataExtension
     public function updateCMSFields(FieldList $fields)
     {
         if($this->owner->ShowCarousel) {
-            // Create add button
-            $add_button = new GridFieldAddNewButton('toolbar-header-left');
-            $add_button->setButtonName('Add Slide');
-
-            // Add carousel editor
-            $grid_config = GridFieldConfig_RecordEditor::create()
-                ->removeComponentsByType('GridFieldAddNewButton')
-                ->removeComponentsByType('GridFieldFilterHeader')
-                ->addComponent(new GridFieldOrderableRows('Sort'))
-                ->addComponent($add_button);
-
             $carousel_table = GridField::create(
                 'Slides',
                 false,
                 $this->owner->Slides(),
-                $grid_config
+                GridFieldConfig_RecordEditor::create()
+                    ->addComponent(new GridFieldOrderableRows('Sort'))
             );
 
             $fields->addFieldToTab('Root.Carousel', $carousel_table);
