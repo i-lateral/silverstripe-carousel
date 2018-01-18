@@ -1,5 +1,21 @@
 <?php
 
+namespace ilateral\SilverStripe\Carousel\Extensions;
+
+use SilverStripe\ORM\DataObject;
+use SilverStripe\Forms\LiteralField;
+use SilverStripe\Forms\NumericField;
+use SilverStripe\Forms\FieldGroup;
+use SilverStripe\Forms\CheckboxField;
+use SilverStripe\Forms\GridField\GridField;
+use SilverStripe\Forms\GridField\GridFieldAddNewButton;
+use Symbiote\GridFieldExtensions\GridFieldOrderableRows;
+use SilverStripe\Forms\GridField\GridFieldConfig_RecordEditor;
+use SilverStripe\Assets\Image;
+use Sheadawson\Linkable\Models\Link;
+use Page;
+
+
 /**
  * Representation of a slide object that can be extended to add extra
  * data (such as links, additional content, etc)
@@ -7,7 +23,8 @@
  * @author i-lateral (http://www.i-lateral.com)
  * @package carousel
  */
-class CarouselSlide extends DataObject {
+class CarouselSlide extends DataObject
+{
 
     /**
      * DB Columns
@@ -15,10 +32,10 @@ class CarouselSlide extends DataObject {
      * @var array
      * @config
      */
-    static $db = array(
+    static $db = [
         'Title'     => 'Varchar(99)',
         'Sort'      => 'Int'
-    );
+    ];
 
     /**
      * Has One relations
@@ -26,11 +43,11 @@ class CarouselSlide extends DataObject {
      * @var array
      * @config
      */
-    static $has_one = array(
-        'Parent'    => 'Page',
-        'Image'     => 'Image',
-        'Link'		=> 'Link'
-    );
+    static $has_one = [
+        'Parent'    => Page::class,
+        'Image'     => Image::class,
+        'Link'		=> Link::class
+    ];
 
     /**
      * Default casting for functions to templates
