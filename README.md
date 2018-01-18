@@ -1,35 +1,71 @@
 Silverstripe Carousel Module
 ============================
 
-Carousel module for the Silverstripe CMS.
+Module that adds the ability to generate Carousels/Sliders
+to your SilverStripe website.
 
-## Author
-This module was created by [i-lateral](http://www.i-lateral.com).
+## Requirements
 
-Although this module can be extended with your own templates / JavaScript,
-the default makes use of [jQuery UI](http://www.jqueryui.com) and the 
-[jquery UI rotate plugin](https://github.com/cmcculloh/jQuery-UI-Tabs-Rotate).
+- SilverStripe Framework: 4.*
+- SilverStripe CMS: 4.*
 
 ## Installation
-Install this module either by downloading and adding to:
 
-[silverstripe-root]/carousel
+Either via composer:
 
-Then run: http://yoursiteurl.com/dev/build/
+    composer require "i-lateral/silverstripe-carousel"
 
-Or alternativly add to your projects composer.json
+Or manually by by downloading and adding to:
+
+    [silverstripe-root]/carousel
+
+Then run:
+
+    ./vendor/bin/sake dev/build flush=1
+
+or (from yuor browser):
+
+    http://yoursiteurl.com/dev/build/
+
 
 ## Usage
-Once installed, you must add the template variable $CarouselSlides to any
-templates you require a carousel to appear on.
 
-Then, you can setup a carousel by logging into the admin interface and editing
-the page you want to add a carousel to.
+The following is a quick guide to getting using this module:
 
-Then click the "Settings" tab, and tick the "add carousel" checkbox.
+### Step 1: Add variable to template
 
-Once this is done (and you have saved) you will see a width and height overwrite
-appear (allowing you to change the size of your carousel).
+Once installed, you have to add the following template variable to
+any templates you require a carousel to appear on:
 
-Once you have finished configuring, you can go back to editing you page, and a
-"carousel" tab should have appeared in the right hand site of the editing pane.
+    $CarouselSlides
+
+### Step 2: Enable carousel on your page
+
+Next, log into the admin interface and edit the page you want to
+add a carousel to.
+
+Then click the "Settings" tab, and tick the "show carousel" checkbox.
+
+### Step 4: Setup Carousel
+
+Once this is done you will be able to set the following fields:
+
+- Width and Height settings (this will determine the size of the rendered images)
+- Show Controls (this will add next/prev buttons) **NOTE** if you want this to work correctly, you will need to disable hash rewrites in SilverStripe
+- Show Indicators (show the blips at the bottom of aa page).
+- Interval (how quickly will each slide be displayed).
+
+### Step 5: Add some slides
+
+Once you have finished configuring, you can go back to the "content"
+tab and a "carousel" tab should have appeared in the right hand side
+of the editing pane.
+
+You can now add slides, attach images and edit their titles.
+
+## Using a different carousel
+
+By default this module uses Bootstrap 4 carousel from a CDN. If you
+want to use your own carousel, you will need to copy the
+`CarouselSlides` template into your theme and amend the HTML and
+Requirements calls
