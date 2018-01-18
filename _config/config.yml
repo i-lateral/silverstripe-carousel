@@ -1,0 +1,6 @@
+---
+Name: carouselconfig
+---
+SilverStripe\CMS\Model\SiteTree:
+  extensions:
+    - ilateral\SilverStripe\Carousel\Extensions\CarouselPage
