@@ -31,8 +31,11 @@ class CarouselPage extends DataExtension
      */
     private static $db = [
         'ShowCarousel'  => 'Boolean',
+        "CarouselShowIndicators" => "Boolean",
+        "CarouselShowControls" => "Boolean",
         'CarouselWidth' => 'Int',
-        'CarouselHeight'=> 'Int'
+        'CarouselHeight'=> 'Int',
+        "CarouselInterval" => "Int"
     ];
 
     /**
@@ -53,7 +56,8 @@ class CarouselPage extends DataExtension
      */
     private static $defaults = [
         'CarouselWidth' => 750,
-        'CarouselHeight' => 350
+        'CarouselHeight' => 350,
+        'CarouselInterval' => 3000,
     ];
 
     public function updateCMSFields(FieldList $fields)
@@ -92,6 +96,14 @@ class CarouselPage extends DataExtension
             CheckboxField::create(
                 'ShowCarousel',
                 'Show a carousel on this page?'
+            ),
+            CheckboxField::create(
+                'CarouselShowIndicators',
+                $this->owner->fieldLabel('CarouselShowIndicators')
+            ),
+            CheckboxField::create(
+                'CarouselShowControls',
+                $this->owner->fieldLabel('CarouselShowControls')
             )
         )->setTitle('Carousel');
 
@@ -101,13 +113,22 @@ class CarouselPage extends DataExtension
         );
 
         if($this->owner->ShowCarousel) {
-            $fields->addFieldToTab(
+            $fields->addFieldsToTab(
                 'Root.Settings',
-                NumericField::create('CarouselWidth', 'Width')
-            );
-            $fields->addFieldToTab(
-                'Root.Settings',
-                NumericField::create('CarouselHeight', 'Height')
+                [
+                    NumericField::create(
+                        'CarouselWidth',
+                        $this->owner->fieldLabel('CarouselWidth')
+                    ),
+                    NumericField::create(
+                        'CarouselHeight',
+                        $this->owner->fieldLabel('CarouselHeight')
+                    ),
+                    NumericField::create(
+                        'CarouselInterval',
+                        $this->owner->fieldLabel('CarouselInterval')
+                    )
+                ]
             );
         }
     }
@@ -116,8 +137,13 @@ class CarouselPage extends DataExtension
         return $this
             ->owner
             ->renderWith(
-                'ilateral\SilverStripe\Carousel\CarouselSlides',
-                ['Slides' => $this->owner->Slides()]
+                'ilateral\SilverStripe\Carousel\Includes\CarouselSlides',
+                [
+                    'Slides' => $this->owner->Slides(),
+                    'Interval' => $this->owner->CarouselInterval ? $this->owner->CarouselInterval : 3000,
+                    'ShowIndicators' => $this->owner->CarouselShowIndicators,
+                    'ShowControls' => $this->owner->CarouselShowControls
+                ]
             );
     }
 }
