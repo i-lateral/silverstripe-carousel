@@ -48,7 +48,7 @@ class CarouselSlide extends DataObject
     private static $has_one = [
         'Parent'    => Page::class,
         'Image'     => Image::class,
-        'Link'		=> Link::class
+        //'Link'		=> Link::class
     ];
 
     /**
@@ -100,10 +100,10 @@ class CarouselSlide extends DataObject
 
         $fields->removeByName('ParentID');
         $fields->removeByName('Sort');
-		$fields->addFieldToTab(
+		/*$fields->addFieldToTab(
 			'Root.Main', 
 			LinkField::create('LinkID', 'Link to page or file')
-		);
+		);*/
 
         return $fields;
     }
