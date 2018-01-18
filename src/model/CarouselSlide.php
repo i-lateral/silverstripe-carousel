@@ -26,13 +26,15 @@ use Page;
 class CarouselSlide extends DataObject
 {
 
+    private static $table_name = 'CarouselSlide';
+
     /**
      * DB Columns
      * 
      * @var array
      * @config
      */
-    static $db = [
+    private static $db = [
         'Title'     => 'Varchar(99)',
         'Sort'      => 'Int'
     ];
@@ -43,7 +45,7 @@ class CarouselSlide extends DataObject
      * @var array
      * @config
      */
-    static $has_one = [
+    private static $has_one = [
         'Parent'    => Page::class,
         'Image'     => Image::class,
         'Link'		=> Link::class
@@ -55,7 +57,7 @@ class CarouselSlide extends DataObject
      * @var array
      * @config
      */
-    static $casting = array(
+    private static $casting = array(
         'Thumbnail' => 'Varchar'
     );
 
@@ -65,7 +67,7 @@ class CarouselSlide extends DataObject
      * @var array
      * @config
      */
-    static $summary_fields = array(
+    private static $summary_fields = array(
         'Thumbnail' => 'Image',
         'Title'     => 'Title'
     );
@@ -76,20 +78,24 @@ class CarouselSlide extends DataObject
      * @var string
      * @config
      */
-    static $default_sort = "Sort ASC";
+    private static $default_sort = "Sort ASC";
     
 
-    public function getSizedImage() {
-        $width = $this->Parent()->CarouselWidth;
-        $height = $this->Parent()->CarouselHeight;
+    public function getSizedImage()
+    {
+        $parent = $this->Parent(); 
+        $width = $parent->CarouselWidth;
+        $height = $parent->CarouselHeight;
 
-        if($width && $height)
+        if($width && $height) {
             return $this->Image()->croppedFocusedImage($width, $height);
-        else
+        } else {
             return false;
+        }
     }
 
-    public function getCMSFields() {
+    public function getCMSFields()
+    {
         $fields = parent::getCMSFields();
 
         $fields->removeByName('ParentID');
@@ -102,11 +108,13 @@ class CarouselSlide extends DataObject
         return $fields;
     }
 
-    public function getThumbnail() {
-        if($this->Image())
+    public function getThumbnail()
+    {
+        if($this->Image()) {
             return $this->Image()->CMSThumbnail();
-        else
+        } else {
             return '(No Image)';
+        }
     }
     
     /**
@@ -126,8 +134,8 @@ class CarouselSlide extends DataObject
      *
      * @return Boolean
      */
-    public function canCreate($member = null) {
-        $extended = $this->extend('canCreate', $member);
+    public function canCreate($member = null, $context = []) {
+        $extended = $this->extend('canCreate', $member, $context);
         if($extended && $extended !== null) return $extended;
 
         return true;

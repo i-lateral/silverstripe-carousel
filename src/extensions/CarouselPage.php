@@ -3,6 +3,7 @@
 namespace ilateral\SilverStripe\Carousel\Extensions;
 
 use SilverStripe\ORM\DataExtension;
+use SilverStripe\Forms\FieldList;
 use SilverStripe\Forms\LiteralField;
 use SilverStripe\Forms\NumericField;
 use SilverStripe\Forms\FieldGroup;
@@ -27,7 +28,7 @@ class CarouselPage extends DataExtension
      * @var array
      * @config
      */
-    static $db = [
+    private static $db = [
         'ShowCarousel'  => 'Boolean',
         'CarouselWidth' => 'Int',
         'CarouselHeight'=> 'Int'
@@ -39,7 +40,7 @@ class CarouselPage extends DataExtension
      * @var array
      * @config
      */
-    static $has_many = [
+    private static $has_many = [
         'Slides' => 'CarouselSlide'
     ];
 
@@ -49,7 +50,7 @@ class CarouselPage extends DataExtension
      * @var array
      * @config
      */
-    static $defaults = [
+    private static $defaults = [
         'CarouselWidth' => 750,
         'CarouselHeight' => 350
     ];
