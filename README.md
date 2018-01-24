@@ -1,6 +1,10 @@
 Silverstripe Carousel Module
 ============================
 
+[![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/i-lateral/silverstripe-carousel/badges/quality-score.png?b=2)](https://scrutinizer-ci.com/g/i-lateral/silverstripe-carousel/?branch=2)
+
+[![GitHub license](https://img.shields.io/github/license/i-lateral/silverstripe-carousel.svg)](https://github.com/i-lateral/silverstripe-carousel/blob/2/LICENSE)
+
 Module that adds the ability to generate Carousels/Sliders
 to your SilverStripe website.
 
