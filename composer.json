@@ -30,7 +30,7 @@
 	"require": {
 		"silverstripe/cms": "~4.0",
         "symbiote/silverstripe-gridfieldextensions": "~3.1",
-        "jonom/focuspoint": "ss4-upgrade-dev"
+        "jonom/focuspoint": "~3.0"
 	},
     "autoload": {
         "psr-4": {

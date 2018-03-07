@@ -11,3 +11,7 @@
 ## 2.0.2
 
 * Fix for composer-api Scrutinizer error
+
+## 2.0.3
+
+* Require stable focuspoint
