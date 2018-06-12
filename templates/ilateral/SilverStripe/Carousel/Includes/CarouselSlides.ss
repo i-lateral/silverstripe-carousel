@@ -46,12 +46,12 @@
         </div>
 
         <% if $ShowControls = 1 %>
-            <a class="carousel-control-prev" href="#CarouselSlider" role="button" data-slide="prev">
+            <a class="carousel-control-prev" href='#CarouselSlider' role="button" data-slide="prev">
                 <span class="carousel-control-prev-icon" aria-hidden="true"></span>
                 <span class="sr-only"><%t Carousel.Prev "Prev" %></span>
             </a>
 
-            <a class="carousel-control-next" href="#CarouselSlider" role="button" data-slide="next">
+            <a class="carousel-control-next" href='#CarouselSlider' role="button" data-slide="next">
                 <span class="carousel-control-next-icon" aria-hidden="true"></span>
                 <span class="sr-only"><%t Carousel.Next "Next" %></span>
             </a>
