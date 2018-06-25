@@ -52,6 +52,15 @@ class CarouselSlide extends DataObject
     ];
 
     /**
+     * Ownership of relations
+     *
+     * @var array
+     */
+    private static $owns = [
+        'Image'
+    ];
+
+    /**
      * Default casting for functions to templates
      * 
      * @var array
