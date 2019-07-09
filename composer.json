@@ -30,7 +30,8 @@
 	"require": {
 		"silverstripe/cms": "~4.0",
         "symbiote/silverstripe-gridfieldextensions": "~3.1",
-        "jonom/focuspoint": "~3.0"
+		"jonom/focuspoint": "~3.0",
+		"heyday/silverstripe-responsive-images": "^2.0"
 	},
     "autoload": {
         "psr-4": {
