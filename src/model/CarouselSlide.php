@@ -89,18 +89,17 @@ class CarouselSlide extends DataObject
      */
     private static $default_sort = "Sort ASC";
     
-
-    public function getSizedImage()
+    /**
+     * Get fully rendered image for template
+     *
+     * @return HTMLText
+     */
+    public function getRenderedImage()
     {
         $parent = $this->Parent(); 
-        $width = $parent->CarouselWidth;
-        $height = $parent->CarouselHeight;
-        
-        if($width && $height) {
-            return $this->Image()->FocusFill($width, $height);
-        } else {
-            return false;
-        }
+        $profile = $parent->CarouselProfile;
+
+        return $this->Image->{$profile}();
     }
 
     public function getCMSFields()

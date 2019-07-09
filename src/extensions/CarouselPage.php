@@ -2,17 +2,23 @@
 
 namespace ilateral\SilverStripe\Carousel\Extensions;
 
-use SilverStripe\ORM\DataExtension;
+use SilverStripe\Dev\Debug;
+use SilverStripe\Assets\Image;
 use SilverStripe\Forms\FieldList;
+use SilverStripe\Forms\FieldGroup;
+use SilverStripe\ORM\DataExtension;
+use SilverStripe\Core\Config\Config;
 use SilverStripe\Forms\LiteralField;
 use SilverStripe\Forms\NumericField;
-use SilverStripe\Forms\FieldGroup;
 use SilverStripe\Forms\CheckboxField;
+use SilverStripe\Forms\DropdownField;
+use SilverStripe\Core\Injector\Injector;
 use SilverStripe\Forms\GridField\GridField;
+use Heyday\ResponsiveImages\ResponsiveImageExtension;
+use ilateral\SilverStripe\Carousel\Model\CarouselSlide;
 use SilverStripe\Forms\GridField\GridFieldAddNewButton;
 use Symbiote\GridFieldExtensions\GridFieldOrderableRows;
 use SilverStripe\Forms\GridField\GridFieldConfig_RecordEditor;
-use ilateral\SilverStripe\Carousel\Model\CarouselSlide;
 
 /**
  * Extension to all page objects that add carousel slide relationships
@@ -33,8 +39,7 @@ class CarouselPage extends DataExtension
         'ShowCarousel'  => 'Boolean',
         "CarouselShowIndicators" => "Boolean",
         "CarouselShowControls" => "Boolean",
-        'CarouselWidth' => 'Int',
-        'CarouselHeight'=> 'Int',
+        "CarouselProfile" => "Varchar",
         "CarouselInterval" => "Int"
     ];
 
@@ -55,8 +60,7 @@ class CarouselPage extends DataExtension
      * @config
      */
     private static $defaults = [
-        'CarouselWidth' => 750,
-        'CarouselHeight' => 350,
+        'CarouselProfile' => 'ShortCarousel',
         'CarouselInterval' => 3000,
     ];
 
@@ -77,8 +81,7 @@ class CarouselPage extends DataExtension
         }
 
         $fields->removeByName('ShowCarousel');
-        $fields->removeByName('CarouselWidth');
-        $fields->removeByName('CarouselHeight');
+        $fields->removeByName('CarouselProfile');
 
         parent::updateCMSFields($fields);
     }
@@ -113,17 +116,18 @@ class CarouselPage extends DataExtension
         );
 
         if($this->owner->ShowCarousel) {
+            $array = [];
+            foreach (array_keys(Config::inst()->get(ResponsiveImageExtension::class, 'sets')) as $key => $value) {
+                $array[$value] = $value;
+            }
             $fields->addFieldsToTab(
                 'Root.Settings',
                 [
-                    NumericField::create(
-                        'CarouselWidth',
-                        $this->owner->fieldLabel('CarouselWidth')
-                    ),
-                    NumericField::create(
-                        'CarouselHeight',
-                        $this->owner->fieldLabel('CarouselHeight')
-                    ),
+                    DropdownField::create(
+                        'CarouselProfile',
+                        $this->owner->fieldLabel('CarouselProfile'),
+                        $array
+                    )->setEmptyString('Choose one'),
                     NumericField::create(
                         'CarouselInterval',
                         $this->owner->fieldLabel('CarouselInterval')
