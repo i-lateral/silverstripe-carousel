@@ -88,6 +88,14 @@ class CarouselSlide extends DataObject
      * @config
      */
     private static $default_sort = "Sort ASC";
+
+    /**
+     * Default image profile to use
+     *
+     * @var string
+     * @config
+     */
+    private static $default_proile = 'ShortCarousel';
     
     /**
      * Get fully rendered image for template
@@ -98,6 +106,11 @@ class CarouselSlide extends DataObject
     {
         $parent = $this->Parent(); 
         $profile = $parent->CarouselProfile;
+        if ($profile) {
+            return $this->Image->{$profile}();
+        } else {
+            $profile = $this->config()->default_proile;
+        }
 
         return $this->Image->{$profile}();
     }
