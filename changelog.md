@@ -15,3 +15,7 @@
 ## 2.0.3
 
 * Require stable focuspoint
+
+## 2.1.0
+
+* Added defered/responsive images

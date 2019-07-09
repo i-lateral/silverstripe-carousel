@@ -7,3 +7,35 @@ SilverStripe\CMS\Model\SiteTree:
 SilverStripe\Admin\LeftAndMain:
   extra_requirements_javascript:
     - 'i-lateral/silverstripe-carousel: client/dist/scripts/carouseladmin.js'
+---
+After: 'silverstripe-responsive-images/*'
+---
+Heyday\ResponsiveImages\ResponsiveImageExtension:
+  sets:
+    TallCarousel:
+      arguments:
+        '(min-width: 1200px) and (min-device-pixel-ratio: 2.0)': [3840, 2160] # xl
+        '(min-width: 1200px)': [1920, 1080]
+        '(min-width: 992px) and (min-device-pixel-ratio: 2.0)': [2400, 1536] # lg
+        '(min-width: 992px)': [1200, 768]
+        '(min-width: 768px) and (min-device-pixel-ratio: 2.0)': [1948, 1536] # md
+        '(min-width: 768px)': [992, 768]
+      default_arguments: [800, 700] # xs
+    ShortCarousel:
+      arguments:
+        '(min-width: 1200px) and (min-device-pixel-ratio: 2.0)': [3840, 1400] # xl
+        '(min-width: 1200px)': [1920, 700]
+        '(min-width: 992px) and (min-device-pixel-ratio: 2.0)': [2400, 1200] # lg
+        '(min-width: 992px)': [1200, 600]
+        '(min-width: 768px) and (min-device-pixel-ratio: 2.0)': [1948, 1100] # md
+        '(min-width: 768px)': [992, 550]
+      default_arguments: [800, 700] # xs
+    LetterboxCarousel:
+      arguments:
+        '(min-width: 1200px) and (min-device-pixel-ratio: 2.0)': [3840, 800] # xl
+        '(min-width: 1200px)': [1920, 400]
+        '(min-width: 992px) and (min-device-pixel-ratio: 2.0)': [2400, 800] # lg
+        '(min-width: 992px)': [1200, 400]
+        '(min-width: 768px) and (min-device-pixel-ratio: 2.0)': [1948, 1000] # md
+        '(min-width: 768px)': [992, 500]
+      default_arguments: [800, 700] # xs

@@ -23,11 +23,7 @@
         <div class="carousel-inner">
             <% loop $Slides %>
                 <div class="carousel-item <% if $First %>active<% end_if %>">
-                    <img
-                        class="d-block w-100"
-                        src="$SizedImage.URL"
-                        alt="$SizedImage.Title"
-                    >
+                    $RenderedImage
                     <% if Title %>
                         <div class="carousel-caption text-center d-none d-md-block slide-content">
 							<% if $Link.LinkURL %>
