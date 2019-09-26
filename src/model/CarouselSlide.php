@@ -3,18 +3,8 @@
 namespace ilateral\SilverStripe\Carousel\Model;
 
 use SilverStripe\ORM\DataObject;
-use SilverStripe\Forms\LiteralField;
-use SilverStripe\Forms\NumericField;
-use SilverStripe\Forms\FieldGroup;
-use SilverStripe\Forms\CheckboxField;
-use SilverStripe\Forms\GridField\GridField;
-use SilverStripe\Forms\GridField\GridFieldAddNewButton;
-use Symbiote\GridFieldExtensions\GridFieldOrderableRows;
-use SilverStripe\Forms\GridField\GridFieldConfig_RecordEditor;
 use SilverStripe\Assets\Image;
-use Sheadawson\Linkable\Models\Link;
-use Page;
-
+use SilverStripe\CMS\Model\SiteTree;
 
 /**
  * Representation of a slide object that can be extended to add extra
@@ -46,7 +36,7 @@ class CarouselSlide extends DataObject
      * @config
      */
     private static $has_one = [
-        'Parent'    => Page::class,
+        'Parent'    => SiteTree::class,
         'Image'     => Image::class,
         //'Link'		=> Link::class
     ];
