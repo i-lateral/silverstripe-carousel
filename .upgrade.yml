@@ -1,0 +1,3 @@
+mappings:
+  CarouselSlide: ilateral\SilverStripe\Carousel\Model\CarouselSlide
+  CarouselPage: ilateral\SilverStripe\Carousel\Extensions\CarouselPage
