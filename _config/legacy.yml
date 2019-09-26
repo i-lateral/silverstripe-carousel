@@ -1,0 +1,7 @@
+---
+Name: custommenuslegacy
+---
+SilverStripe\ORM\DatabaseAdmin:
+  classname_value_remapping:
+    CarouselSlide: ilateral\SilverStripe\Carousel\Model\CarouselSlide
+
