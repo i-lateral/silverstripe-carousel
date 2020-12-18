@@ -1,5 +1,5 @@
 ---
-Name: custommenuslegacy
+Name: carousellegacy
 ---
 SilverStripe\ORM\DatabaseAdmin:
   classname_value_remapping:
