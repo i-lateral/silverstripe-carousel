@@ -72,7 +72,7 @@ class CarouselSlide extends DataObject
     private static $summary_fields = array(
         'Thumbnail' => 'Image',
         'Title'     => 'Title',
-        'Link.Title'=> 'Title'
+        'Link.Title'=> 'Link'
     );
 
     /**
@@ -113,13 +113,18 @@ class CarouselSlide extends DataObject
     {
         $fields = parent::getCMSFields();
 
-        $fields->removeByName(['ParentID', 'Sort']);
+        $fields->removeByName([
+            'ParentID',
+            'Sort',
+            'LinkID'
+        ]);
 
 		$fields->addFieldToTab(
 			'Root.Main', 
 			LinkField::create(
-                'LinkID',
-                $this->fieldLabel('Link')
+                'Link',
+                $this->fieldLabel('Link'),
+                $this
             )
 		);
 
