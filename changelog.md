@@ -19,3 +19,7 @@
 ## 2.1.0
 
 * Added defered/responsive images
+
+## 2.2.0
+
+* Re-added support for linkable/link module
