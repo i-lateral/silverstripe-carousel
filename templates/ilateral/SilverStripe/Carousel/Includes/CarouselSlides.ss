@@ -28,7 +28,9 @@
                         <div class="carousel-caption text-center d-none d-md-block slide-content">
 							<% if $Link.LinkURL %>
 								<p class="h2"><strong>
-                                    <a href="$Link.LinkURL" $Link.TargetAttr>$Title.RAW</a>
+                                    <a href="$Link.LinkURL" $Link.TargetAttr>
+                                        $Title.RAW
+                                    </a>
                                 </strong></p>
 							<% else %>
 								<p class="h2"><strong>

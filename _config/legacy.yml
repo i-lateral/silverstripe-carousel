@@ -4,4 +4,4 @@ Name: carousellegacy
 SilverStripe\ORM\DatabaseAdmin:
   classname_value_remapping:
     CarouselSlide: ilateral\SilverStripe\Carousel\Model\CarouselSlide
-
+    Link: gorriecoe\Link\Models\Link

@@ -2,8 +2,10 @@
 
 namespace ilateral\SilverStripe\Carousel\Model;
 
-use SilverStripe\ORM\DataObject;
 use SilverStripe\Assets\Image;
+use gorriecoe\Link\Models\Link;
+use SilverStripe\ORM\DataObject;
+use gorriecoe\LinkField\LinkField;
 use SilverStripe\CMS\Model\SiteTree;
 
 /**
@@ -38,7 +40,7 @@ class CarouselSlide extends DataObject
     private static $has_one = [
         'Parent'    => SiteTree::class,
         'Image'     => Image::class,
-        //'Link'		=> Link::class
+        'Link'		=> Link::class
     ];
 
     /**
@@ -47,7 +49,8 @@ class CarouselSlide extends DataObject
      * @var array
      */
     private static $owns = [
-        'Image'
+        'Image',
+        'Link'
     ];
 
     /**
@@ -68,7 +71,8 @@ class CarouselSlide extends DataObject
      */
     private static $summary_fields = array(
         'Thumbnail' => 'Image',
-        'Title'     => 'Title'
+        'Title'     => 'Title',
+        'Link.Title'=> 'Title'
     );
 
     /**
@@ -109,12 +113,15 @@ class CarouselSlide extends DataObject
     {
         $fields = parent::getCMSFields();
 
-        $fields->removeByName('ParentID');
-        $fields->removeByName('Sort');
-		/*$fields->addFieldToTab(
+        $fields->removeByName(['ParentID', 'Sort']);
+
+		$fields->addFieldToTab(
 			'Root.Main', 
-			LinkField::create('LinkID', 'Link to page or file')
-		);*/
+			LinkField::create(
+                'LinkID',
+                $this->fieldLabel('Link')
+            )
+		);
 
         return $fields;
     }
